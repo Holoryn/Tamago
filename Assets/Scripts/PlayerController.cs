@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour {
 	public float speed;
 	public Text countText;
-	public Text winText;
 
 	private Rigidbody rb;
 	private int count;
@@ -15,7 +15,6 @@ public class PlayerController : MonoBehaviour {
 		rb = GetComponent<Rigidbody>();
 		count = 0;
 		SetCountText();
-		winText.text = "";
 	}
 
 	void FixedUpdate() {
@@ -39,7 +38,7 @@ public class PlayerController : MonoBehaviour {
 		countText.text = "Count: " + count.ToString();
 
 		if (count >= 12) {
-			winText.text = "Winner winner chicken dinner!";
+			SceneManager.LoadScene("Victory");
 		}
 	}
 }
