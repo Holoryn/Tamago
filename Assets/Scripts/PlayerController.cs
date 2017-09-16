@@ -32,6 +32,9 @@ public class PlayerController : MonoBehaviour {
 			count++;
 			SetCountText();
 		}
+		else if (other.gameObject.CompareTag("Enemy")) {
+			SceneManager.LoadScene("GameOver");
+		}
 	}
 
 	void SetCountText() {
