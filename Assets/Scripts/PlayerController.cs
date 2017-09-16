@@ -32,7 +32,10 @@ public class PlayerController : MonoBehaviour {
 			count++;
 			SetCountText();
 		}
-		else if (other.gameObject.CompareTag("Enemy")) {
+	}
+
+	void OnCollisionEnter(Collision collision) {
+		if (collision.gameObject.tag == "Enemy") {
 			SceneManager.LoadScene("GameOver");
 		}
 	}
