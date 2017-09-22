@@ -13,8 +13,8 @@ public class EnemyController : MonoBehaviour {
 		rb = GetComponent<Rigidbody>();
 
         // Randomize enemy starting position to a random collectible
-        var collectibles = GameObject.FindGameObjectsWithTag("Pick Up");
-        transform.position = collectibles[Random.Range(0, collectibles.Length)].transform.position;
+        var coordinates = new int[] { -9, 9 };
+        transform.position = new Vector3(coordinates[Random.Range(0, coordinates.Length)], 0.5f, coordinates[Random.Range(0, coordinates.Length)]);
 	}
 
 	void Update() {
