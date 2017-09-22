@@ -11,6 +11,10 @@ public class EnemyController : MonoBehaviour {
 	void Start() {
 		player = GameObject.Find("Player");
 		rb = GetComponent<Rigidbody>();
+
+        // Randomize enemy starting position to a random collectible
+        var collectibles = GameObject.FindGameObjectsWithTag("Pick Up");
+        transform.position = collectibles[Random.Range(0, collectibles.Length)].transform.position;
 	}
 
 	void Update() {
